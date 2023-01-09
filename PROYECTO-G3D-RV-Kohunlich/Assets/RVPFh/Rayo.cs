@@ -49,6 +49,54 @@ public class Rayo : MonoBehaviour
                 {
                     Info.text = "Esto es un cilindro";
                 }
+            else if (NombreLugar.text == "ACROPOLIS")
+            {
+                Info.text = "ACROPOLIS";
+            }
+            else if (NombreLugar.text == "CONJUNTO NOROESTE")
+            {
+                Info.text = "CONJUNTO NOROESTE";
+            }
+            else if (NombreLugar.text == "EDIFICIO DE LAS 11 PUERTAS")
+            {
+                Info.text = "EDIFICIO DE LAS 11 PUERTAS";
+            }
+            else if (NombreLugar.text == "EDIFICIO DE LAS COLUMNAS PARALELAS")
+            {
+                Info.text = "EDIFICIO DE LAS COLUMNAS PARALELAS";
+            }
+            else if (NombreLugar.text == "EL REY")
+            {
+                Info.text = "EL REY";
+            }
+            else if (NombreLugar.text == "ESTRUCTURAS PLAZA MERWIN")
+            {
+                Info.text = "ESTRUCTURAS PLAZA MERWIN";
+            }
+            else if (NombreLugar.text == "JUEGO DE PELOTA")
+            {
+                Info.text = "JUEGO DE PELOTA";
+            }
+            else if (NombreLugar.text == "LA GRADERÍA")
+            {
+                Info.text = "LA GRADERÍA";
+            }
+            else if (NombreLugar.text == "LOS 27 ESCALONES")
+            {
+                Info.text = "LOS 27 ESCALONES";
+            }
+            else if (NombreLugar.text == "MASCARONES")
+            {
+                Info.text = "MASCARONES";
+            }
+            else if (NombreLugar.text == "PALACIO DE LAS ESTELAS")
+            {
+                Info.text = "PALACIO DE LAS ESTELAS";
+            }
+            else if (NombreLugar.text == "PLAZA PIXA'AN")
+            {
+                Info.text = "PLAZA PIXA'AN";
+            }
             else
                 {
                     Info.text = " ";

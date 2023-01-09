@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CILINDRO
+  - ACROPOLIS
+  - CONJUNTO NOROESTE
+  - EDIFICIO DE LAS 11 PUERTAS
+  - EDIFICIO DE LAS COLUMNAS PARALELAS
+  - EL REY
+  - ESTRUCTURAS PLAZA MERWIN
+  - JUEGO DE PELOTA
+  - "LA GRADER\xCDA"
+  - LOS 27 ESCALONES
+  - MASCARONES
+  - PALACIO DE LAS ESTELAS
+  - PLAZA PIXA'AN
   layers:
   - Default
   - TransparentFX
