@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class INTERACCIONES : MonoBehaviour
 {
@@ -9,13 +10,11 @@ public class INTERACCIONES : MonoBehaviour
     float dT0X, dT0Y, dT1X, dT1Y, RY = 0f, RX = 0f;
     public GameObject CAMARA;
     Vector2 Pi0, Pi1, Pf0, Pf1;
-    Vector3 SP;
     float d;
     public Camera CAM;
     float EJEY = 1.8f;
     float EJEZ = 0f;
     float EJEX = 0f;
-    bool C = false;
 
 
     // Start is called before the first frame update
@@ -25,27 +24,25 @@ public class INTERACCIONES : MonoBehaviour
     }
 
     // Update is called once per frame
+    void OnCollisionEnter(Collision collision)
+    {
+        EJEZ -= 1f * d * Mathf.Cos(RY * Mathf.Deg2Rad);
+        EJEX -= 1f * d * Mathf.Sin(RY * Mathf.Deg2Rad);
+        CAMARA.transform.localPosition = new Vector3(EJEX, EJEY, EJEZ);
+    }
     void OnTriggerEnter(Collider other)
     {
-        //CAMARA.transform.position = SP;
         print("Ouch!");
-        EJEZ -= 1.5f * d * Mathf.Cos(RY * Mathf.Deg2Rad);
-        EJEX -= 1.5f * d * Mathf.Sin(RY * Mathf.Deg2Rad);
+        EJEZ -= 1f * d * Mathf.Cos(RY * Mathf.Deg2Rad);
+        EJEX -= 1f * d * Mathf.Sin(RY * Mathf.Deg2Rad);
         CAMARA.transform.localPosition = new Vector3(EJEX, EJEY, EJEZ);
     }
     void Update()
     {
       
-        //EJEY = Mathf.Clamp(EJEY, 1f, 70f);
         EJEX = Mathf.Clamp(EJEX, -325f, 325f);
         EJEZ = Mathf.Clamp(EJEZ, -325f, 325f);
         RX = Mathf.Clamp(RX, -10f, 45f);
-
-        /*if (Input.GetTouch(0).tapCount == 1)
-        {
-            RX = 0f;
-            CAMARA.transform.eulerAngles = new Vector3(RX, RY, 0f);
-        }*/
 
         NT = Input.touchCount;
         if (NT == 1)
@@ -64,22 +61,11 @@ public class INTERACCIONES : MonoBehaviour
             
             CAMARA.transform.eulerAngles = new Vector3(RX, RY, 0f);
 
-            //Debug.Log(RX);
         }
 
         if (NT == 2)
         {
-           /* if (C)
-            {
-                
-                C = false;
-            }
-            else
-            {*/
                 MOVIMIENTO();
-           /* }
-            /*MOVIMIENTO();
-            SP = new Vector3(EJEX, EJEY, EJEZ);*/
         }
         
     }
@@ -96,17 +82,16 @@ public class INTERACCIONES : MonoBehaviour
         Pi0 = Pf0 - T0.deltaPosition;
         Pi1 = Pf1 - T1.deltaPosition;
         d = (Pf0 - Pf1).magnitude - (Pi0 - Pi1).magnitude;
-        //CAM.fieldOfView = FV;
+
         if ((Mathf.Abs(dT0Y) > (Mathf.Abs(dT0X) * 1.2)) && (Mathf.Abs(dT1Y) > (Mathf.Abs(dT1X)) * 1.2) && d < 5 && d > -5)
         {
             //EJEY += 0.1f * (dT0Y+dT1Y)/2f;
             CAMARA.transform.position = new Vector3(EJEX, EJEY, EJEZ);
-            //Debug.Log(dT0X);
         }
         else if (d > 1.5 || d < -1.5)
         {
-            EJEZ += 0.1f * d * Mathf.Cos(RY * Mathf.Deg2Rad);
-            EJEX += 0.1f * d * Mathf.Sin(RY * Mathf.Deg2Rad);
+            EJEZ += 0.05f * d * Mathf.Cos(RY * Mathf.Deg2Rad);
+            EJEX += 0.05f * d * Mathf.Sin(RY * Mathf.Deg2Rad);
             //EJEY += 0.1f * d * Mathf.Sin(-RX * Mathf.Deg2Rad);
             CAMARA.transform.localPosition = new Vector3(EJEX, EJEY, EJEZ);
         }
