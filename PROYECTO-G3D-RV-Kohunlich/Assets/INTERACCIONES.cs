@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Threading;
 
 public class INTERACCIONES : MonoBehaviour
@@ -15,12 +16,17 @@ public class INTERACCIONES : MonoBehaviour
     float EJEY = 1.8f;
     float EJEZ = 0f;
     float EJEX = 0f;
+    int Mod;
+    Quaternion Q0, Q1, Q2, Q3, QA, QB;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Input.gyro.enabled = true;
+        Q1 = new Quaternion(0f, 0f, Mathf.Sin(Mathf.PI / 4f), Mathf.Cos(Mathf.PI / 4f));
+        Q2 = new Quaternion(Mathf.Sin(Mathf.PI / 4f), 0f, 0f, Mathf.Cos(Mathf.PI / 4f));
+        Q3 = new Quaternion(0f, 0f, Mathf.Sin(Mathf.PI / 2f), Mathf.Cos(Mathf.PI / 2f));
     }
 
     // Update is called once per frame
@@ -28,21 +34,31 @@ public class INTERACCIONES : MonoBehaviour
     {
         EJEZ -= 1f * d * Mathf.Cos(RY * Mathf.Deg2Rad);
         EJEX -= 1f * d * Mathf.Sin(RY * Mathf.Deg2Rad);
-        CAMARA.transform.localPosition = new Vector3(EJEX, EJEY, EJEZ);
+        CAMARA.transform.localPosition = new Vector3(EJEX, 1.8f, EJEZ);
     }
     void OnTriggerEnter(Collider other)
     {
-        print("Ouch!");
         EJEZ -= 1f * d * Mathf.Cos(RY * Mathf.Deg2Rad);
         EJEX -= 1f * d * Mathf.Sin(RY * Mathf.Deg2Rad);
         CAMARA.transform.localPosition = new Vector3(EJEX, EJEY, EJEZ);
     }
     void Update()
     {
-      
+
+        if (Mod == 0)
+        {
+            RV();
+        }
+        else
+        {
+            RA();
+        }  
+    }
+    void RV()
+    {
         EJEX = Mathf.Clamp(EJEX, -325f, 325f);
         EJEZ = Mathf.Clamp(EJEZ, -325f, 325f);
-        RX = Mathf.Clamp(RX, -10f, 45f);
+        RX = Mathf.Clamp(RX, -10f, 60f);
 
         NT = Input.touchCount;
         if (NT == 1)
@@ -50,7 +66,7 @@ public class INTERACCIONES : MonoBehaviour
             T0 = Input.GetTouch(0);
             dT0X = T0.deltaPosition.x;
             dT0Y = T0.deltaPosition.y;
-            if(Mathf.Abs(dT0X) > Mathf.Abs (dT0Y))
+            if (Mathf.Abs(dT0X) > Mathf.Abs(dT0Y))
             {
                 RY -= 0.1f * dT0X;
             }
@@ -58,16 +74,15 @@ public class INTERACCIONES : MonoBehaviour
             {
                 RX -= 0.1f * dT0Y;
             }
-            
+
             CAMARA.transform.eulerAngles = new Vector3(RX, RY, 0f);
 
         }
 
         if (NT == 2)
         {
-                MOVIMIENTO();
+            MOVIMIENTO();
         }
-        
     }
     void MOVIMIENTO()
     {
@@ -95,5 +110,18 @@ public class INTERACCIONES : MonoBehaviour
             //EJEY += 0.1f * d * Mathf.Sin(-RX * Mathf.Deg2Rad);
             CAMARA.transform.localPosition = new Vector3(EJEX, EJEY, EJEZ);
         }
+    }
+    void RA()
+    {
+        Q0 = Input.gyro.attitude;
+        QA = Q3 * Q2 * Q1 * Q0;
+        QB = QA;
+        QB.x = -QA.x;
+        QB.y = -QA.y;
+        CAMARA.transform.rotation = QB;
+    }
+    public void MODO(Dropdown dropdown)
+    {
+        Mod = dropdown.value;
     }
 }
