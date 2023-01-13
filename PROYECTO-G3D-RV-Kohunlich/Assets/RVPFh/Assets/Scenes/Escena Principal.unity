@@ -2118,7 +2118,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 23.5099}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899953881
 MonoBehaviour:
@@ -4176,7 +4176,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1757000711}
-  - component: {fileID: 1757000710}
   - component: {fileID: 1757000712}
   - component: {fileID: 1757000713}
   - component: {fileID: 1757000714}
@@ -4187,20 +4186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1757000710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757000709}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 451224151b0e90d40a25dcd9faf9d838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CAMARA: {fileID: 963194225}
-  CAM: {fileID: 963194227}
 --- !u!4 &1757000711
 Transform:
   m_ObjectHideFlags: 0
@@ -4807,7 +4792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e1f0242210007dd4eb7c37ddf8d33e8d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
