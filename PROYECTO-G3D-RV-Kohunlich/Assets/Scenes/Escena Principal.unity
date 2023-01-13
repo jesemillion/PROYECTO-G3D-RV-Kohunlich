@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -891,7 +891,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 526525650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689afc198ce51c047a24e19fc22d84a7, type: 3}
+  m_Script: {fileID: 11500000, guid: f6f67f0f1b1c0a24c846f479d64619ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Principal: {fileID: 1153041930}
@@ -1864,7 +1864,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 845674849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3b716a1e7e6804dac796daed087dea, type: 3}
+  m_Script: {fileID: 11500000, guid: 983b431f308e2884f926ad49f6351480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NombreLugar: {fileID: 1483848548}
@@ -2175,19 +2175,7 @@ MonoBehaviour:
       m_Image: {fileID: 21300000, guid: 3160dd803cab59e478dbef7af3ad4cb3, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1757000712}
-        m_TargetAssemblyTypeName: INTERACCIONES, Assembly-CSharp
-        m_MethodName: MODO
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 899953881}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Dropdown, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &899953882
 MonoBehaviour:
@@ -2209,7 +2197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 009d823092b467d489e39f48f52b629a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1f0242210007dd4eb7c37ddf8d33e8d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2408,13 +2396,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 15.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 845674850}
-  - {fileID: 1757000711}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2918,7 +2905,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3007,7 +2994,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 2, y: 2.0000005, z: 1.9125563}
   m_Center: {x: 4.0869322e-10, y: 1.5473887e-10, z: 0.95627815}
 --- !u!1 &1194566103 stripped
 GameObject:
@@ -4065,7 +4052,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 845674851}
-        m_TargetAssemblyTypeName: Rayo, Assembly-CSharp
+        m_TargetAssemblyTypeName: II_Rayo, Assembly-CSharp
         m_MethodName: B_Info_clicked
         m_Mode: 1
         m_Arguments:
@@ -4176,10 +4163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1757000711}
-  - component: {fileID: 1757000710}
   - component: {fileID: 1757000712}
-  - component: {fileID: 1757000713}
-  - component: {fileID: 1757000714}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -4187,20 +4171,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1757000710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757000709}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 451224151b0e90d40a25dcd9faf9d838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CAMARA: {fileID: 963194225}
-  CAM: {fileID: 963194227}
 --- !u!4 &1757000711
 Transform:
   m_ObjectHideFlags: 0
@@ -4208,13 +4178,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757000709}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 71.7897, y: 82.080414, z: -102.49179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 963194228}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1757000712
 MonoBehaviour:
@@ -4225,40 +4195,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1757000709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084d5bcf8d108264e8a8305ad18a125f, type: 3}
+  m_Script: {fileID: 11500000, guid: 65896e4d5eca0564cbf5932b1f00c3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CAMARA: {fileID: 963194225}
   CAM: {fileID: 963194227}
---- !u!54 &1757000713
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757000709}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &1757000714
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757000709}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1763532665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,7 +4623,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
