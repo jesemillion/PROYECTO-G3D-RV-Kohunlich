@@ -34,6 +34,8 @@ public class DESPLAZAMIENTO : MonoBehaviour
         Q1 = new Quaternion(0f, 0f, Mathf.Sin(Mathf.PI / 4f), Mathf.Cos(Mathf.PI / 4f));
         Q2 = new Quaternion(Mathf.Sin(Mathf.PI / 4f), 0f, 0f, Mathf.Cos(Mathf.PI / 4f));
         Q3 = new Quaternion(0f, 0f, Mathf.Sin(Mathf.PI / 2f), Mathf.Cos(Mathf.PI / 2f));
+        Lai = Input.location.lastData.latitude;
+        Loi = Input.location.lastData.longitude;
     }
 
     // Update is called once per frame
