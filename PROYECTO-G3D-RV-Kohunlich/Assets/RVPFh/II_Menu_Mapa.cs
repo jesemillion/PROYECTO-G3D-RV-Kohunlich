@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 // Instituto Politécnico Nacional - UPIITA
 // Realidad Virtual - 4MV14
@@ -18,6 +19,7 @@ public class II_Menu_Mapa : MonoBehaviour
     public Canvas Principal;
     public Canvas Menu;
     public Canvas Mapa;
+    public Canvas Video;
     public Button Btn_Menu;
     public Button Btn_Tutorial;
     public Button Btn_RealidadAumentada;
@@ -27,11 +29,17 @@ public class II_Menu_Mapa : MonoBehaviour
     public Button Btn_Mapa;
     public Button Btn_Volver;
     public Dropdown Dd_Modo;
+    public GameObject INTRO;
+    VideoPlayer video;
     // Start is called before the first frame update
     void Start()
     {
+        Principal.enabled = false;
         Menu.enabled = false;
         Mapa.enabled = false;
+        video = INTRO.GetComponent<VideoPlayer>();
+        video.Play();
+        video.loopPointReached += CheckOver;
     }
 
     // Update is called once per frame
@@ -52,7 +60,7 @@ public class II_Menu_Mapa : MonoBehaviour
         Mapa.enabled = false;
         Principal.enabled = false;
         Btn_RealidadAumentada.gameObject.SetActive(false);
-       
+
         Btn_Ok.gameObject.SetActive(false);
         Dd_Modo.gameObject.SetActive(false);
     }
@@ -79,8 +87,8 @@ public class II_Menu_Mapa : MonoBehaviour
         Principal.enabled = true;
         Mapa.enabled = false;
     }
-    private void Btn_Tutorial_clicked() { 
-    
+    private void Btn_Tutorial_clicked() {
+
     }
     private void Btn_Modo_Mapa_clicked() {
         Menu.enabled = false;
@@ -91,5 +99,11 @@ public class II_Menu_Mapa : MonoBehaviour
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
+    }
+    void CheckOver(VideoPlayer vp)
+    {
+        gameObject.SetActive(false);
+        Video.enabled = false;
+        Principal.enabled = true;
     }
 }
