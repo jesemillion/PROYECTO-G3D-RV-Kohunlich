@@ -61,7 +61,7 @@ public class II_Menu_Mapa : MonoBehaviour
         Menu.enabled = false;
         Mapa.enabled = false;
         //video = INTRO.GetComponent<VideoPlayer>();
-        //video.Play();
+        video.Play();
         video.loopPointReached += CheckOver;
     }
 
