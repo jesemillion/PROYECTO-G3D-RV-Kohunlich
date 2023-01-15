@@ -22,7 +22,6 @@ public class II_Menu_Mapa : MonoBehaviour
     public Canvas Video;
     public Button Btn_Menu;
     public Button Btn_Tutorial;
-    public Button Btn_RealidadAumentada;
     public Button Btn_Modo;
     public Button Btn_Ok;
     public Button Btn_Salir;
@@ -43,11 +42,8 @@ public class II_Menu_Mapa : MonoBehaviour
     public Button ZONA11;
     public Button ZONA12;
     public Button ZONA13;
-    public Button ZONA14;
-    public Button ZONA15;
-    public Button ZONA16;
     public GameObject CAMERA;
-    public VideoPlayer video;
+    public VideoPlayer INTRO;
     // Start is called before the first frame update
     void CheckOver(VideoPlayer vp)
     {
@@ -61,8 +57,8 @@ public class II_Menu_Mapa : MonoBehaviour
         Menu.enabled = false;
         Mapa.enabled = false;
         //video = INTRO.GetComponent<VideoPlayer>();
-        //video.Play();
-        video.loopPointReached += CheckOver;
+        INTRO.Play();
+        INTRO.loopPointReached += CheckOver;
     }
 
     // Update is called once per frame
@@ -88,9 +84,6 @@ public class II_Menu_Mapa : MonoBehaviour
         ZONA11.onClick.AddListener(Btn_ZONA11_clicked);
         ZONA12.onClick.AddListener(Btn_ZONA12_clicked);
         ZONA13.onClick.AddListener(Btn_ZONA13_clicked);
-        ZONA14.onClick.AddListener(Btn_ZONA14_clicked);
-        ZONA15.onClick.AddListener(Btn_ZONA15_clicked);
-        ZONA16.onClick.AddListener(Btn_ZONA16_clicked);
     }
 
     private void Btn_Menu_clicked()
@@ -98,7 +91,6 @@ public class II_Menu_Mapa : MonoBehaviour
         Menu.enabled = true;
         Mapa.enabled = false;
         Principal.enabled = false;
-        Btn_RealidadAumentada.gameObject.SetActive(false);
 
         Btn_Ok.gameObject.SetActive(false);
         Dd_Modo.gameObject.SetActive(false);
@@ -232,28 +224,5 @@ public class II_Menu_Mapa : MonoBehaviour
         Principal.enabled = true;
         Mapa.enabled = false;
         CAMERA.transform.position = new Vector3(1500f, 215f, -600f);
-    }
-    private void Btn_ZONA14_clicked()
-    {
-        Menu.enabled = false;
-        Principal.enabled = true;
-        Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(1800f, 215f, -600f);
-
-    }
-    private void Btn_ZONA15_clicked()
-    {
-        Menu.enabled = false;
-        Principal.enabled = true;
-        Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(2100f, 215f, -600f);
-    }
-    private void Btn_ZONA16_clicked()
-    {
-        Menu.enabled = false;
-        Principal.enabled = true;
-        Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(2400f, 215f, -600f);
-    }
-    
+    } 
 }

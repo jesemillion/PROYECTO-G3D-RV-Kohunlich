@@ -41,15 +41,7 @@ public class Rayo : MonoBehaviour
             NombreLugar.text = GOLPE.collider.tag;
             B_Info.gameObject.SetActive(true);
             //Esqueleto nombre tag
-            if (NombreLugar.text == "CUBOPRUEBA")
-                {
-                    Info.text = "Esto es un cubo";
-                }
-            else if (NombreLugar.text == "CILINDRO")
-                {
-                    Info.text = "Esto es un cilindro";
-                }
-            else if (NombreLugar.text == "ACROPOLIS")
+            if (NombreLugar.text == "ACROPOLIS")
             {
                 Info.text = "ACROPOLIS";
             }
