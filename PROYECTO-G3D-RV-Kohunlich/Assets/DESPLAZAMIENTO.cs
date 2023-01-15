@@ -7,7 +7,8 @@ public class DESPLAZAMIENTO : MonoBehaviour
 {
     int NT;
     Touch T0, T1;
-    float dT0X, dT0Y, RY = 0f, RX = 0f;
+    float dT0X, dT0Y;
+    public float RY = 0f, RX = 0f;
     Vector2 Pi0, Pi1, Pf0, Pf1;
     public CharacterController CONTROLLER;
     public GameObject CAM;
@@ -17,10 +18,10 @@ public class DESPLAZAMIENTO : MonoBehaviour
 
     float boundary = 325f; //MODIFICAR AQUI EL TAMAÑO DEL CUADRADO EN EL 
                            //CUAL EL USUARIO SE PUEDE DESPLAZAR, +-325 
-    float vel = 10f; //MODIFICAR AQUI LA VELOCIDAD DEL DESPLAZAMIENTO
+    float vel = 5f; //MODIFICAR AQUI LA VELOCIDAD DEL DESPLAZAMIENTO
 
     int Mod;//VARIABLE QUE DEFINE ENTRE MUNDO VIRTUAL Y REALIDAD VIRTUAL
-    float Laf, Lof, Alf, ANGULO;
+    float Laf, Lof;
     //float Lai = 19.511446f, Loi = -99.126563f, Ali = 2241f; //ESCUELA
     float Lai = 19.40977f, Loi = -99.01373f, Ali = 2228f; //PERSONAL
     float dLa, dLo, X, Z, t;
@@ -37,11 +38,10 @@ public class DESPLAZAMIENTO : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    {   
         if (Mod == 0)
         {
-            RV();
+                RV();
         }
         else
         {
@@ -139,7 +139,6 @@ public class DESPLAZAMIENTO : MonoBehaviour
             CAM.transform.rotation = QB;
             Laf = Input.location.lastData.latitude;
             Lof = Input.location.lastData.longitude;
-            Alf = Input.location.lastData.altitude;
             dLa = Laf - Lai;
             dLo = Lof - Loi;
             X = R * (dLo * Mathf.Deg2Rad) * Mathf.Cos(Laf * Mathf.Deg2Rad);
