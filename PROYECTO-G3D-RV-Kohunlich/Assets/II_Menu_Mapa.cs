@@ -4,16 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-// Instituto Politécnico Nacional - UPIITA
-// Realidad Virtual - 4MV14
-// Proyecto Final 2023-1
-// Equipo: Interacciones e Información
-// Integrantes:
-//  - Hinojosa Pérez Marco Antonio
-//  - Mancilla Galván Luis Ángel
-//  - Morales Flores Luis Fernando
-//  - Velasco Sandoval Nahomi
-
 public class II_Menu_Mapa : MonoBehaviour
 {
     public Canvas Principal;
@@ -28,7 +18,6 @@ public class II_Menu_Mapa : MonoBehaviour
     public Button Btn_Mapa;
     public Button Btn_Volver;
     public Dropdown Dd_Modo;
-    //public GameObject INTRO;
     public Button ZONA1;
     public Button ZONA2;
     public Button ZONA3;
@@ -44,10 +33,11 @@ public class II_Menu_Mapa : MonoBehaviour
     public Button ZONA13;
     public GameObject CAMERA;
     public VideoPlayer INTRO;
+    public VideoPlayer TUTO;
+    DESPLAZAMIENTO Des;
     // Start is called before the first frame update
     void CheckOver(VideoPlayer vp)
     {
-        //gameObject.SetActive(false);
         Video.enabled = false;
         Principal.enabled = true;
     }
@@ -56,9 +46,9 @@ public class II_Menu_Mapa : MonoBehaviour
         Principal.enabled = false;
         Menu.enabled = false;
         Mapa.enabled = false;
-        //video = INTRO.GetComponent<VideoPlayer>();
         INTRO.Play();
         INTRO.loopPointReached += CheckOver;
+        Des = FindObjectOfType<DESPLAZAMIENTO>();
     }
 
     // Update is called once per frame
@@ -112,21 +102,29 @@ public class II_Menu_Mapa : MonoBehaviour
         Btn_Salir.gameObject.SetActive(true);
         Btn_Modo.gameObject.SetActive(true);
     }
-    private void Btn_salir_clicked() {
-
+    private void Btn_salir_clicked() 
+    {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
     }
-    private void Btn_Tutorial_clicked() {
-
+    private void Btn_Tutorial_clicked()
+    {
+        Video.enabled = true;
+        Principal.enabled = false;
+        Menu.enabled = false;
+        Mapa.enabled = false;
+        TUTO.Play();
+        TUTO.loopPointReached += CheckOver;
     }
-    private void Btn_Modo_Mapa_clicked() {
+    private void Btn_Modo_Mapa_clicked() 
+    {
         Menu.enabled = false;
         Principal.enabled = false;
         Mapa.enabled = true;
     }
-    private void Btn_Volver_clicked() {
+    private void Btn_Volver_clicked() 
+    {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
@@ -136,93 +134,129 @@ public class II_Menu_Mapa : MonoBehaviour
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-2400f, 215f, -600f);
+        Des.RX = 0f;
+        Des.RY = 15f;
+        CAMERA.transform.position = new Vector3(253f, 1.8f, 187f);//coordenadas del Conjunto de los 27 escalones
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA2_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-2100f, 215f, -600f);
-
+        Des.RX = -5f;
+        Des.RY = 110f;
+        CAMERA.transform.position = new Vector3(210f, 1.8f, -114f);//EDIFICIO DE LAS COLUMNAS PARALELAS
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA3_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-1800f, 215f, -600f);
+        Des.RX = -5f;
+        Des.RY = 18f;
+        CAMERA.transform.position = new Vector3(175f, 1.8f, -98f);//EDIFICIO DE LAS 11 PUERTAS
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA4_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-1500f, 215f, -600f);
+        Des.RX = 0f;
+        Des.RY = 96f;
+        CAMERA.transform.position = new Vector3(70f, 1.8f, -11f);//PLAZA PIXA'AN
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA5_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-1200f, 215f, -600f);
+        Des.RX = 4f;
+        Des.RY = 110f;
+        CAMERA.transform.position = new Vector3(165f, 1.8f, -107.5f);//ESTRUCTURAS PLAZA MERWIN
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA6_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-900f, 215f, -600f);
-
+        Des.RX = 4f;
+        Des.RY = 192f;
+        CAMERA.transform.position = new Vector3(162f, 1.8f, -108f);//LA GRADERÍA
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA7_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-600f, 215f, -600f);
+        Des.RX = 5f;
+        Des.RY = 103f;
+        CAMERA.transform.position = new Vector3(50f, 1.8f, -90f);//JUEGO DE PELOTA
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA8_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(-300f, 215f, -600f);
+        Des.RX = -10f;
+        Des.RY = 110f;
+        CAMERA.transform.position = new Vector3(186f, 1.8f, -170f);//EL REY
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA9_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(300f, 215f, -600f);
+        Des.RX = -25f;
+        Des.RY = 145f;
+        CAMERA.transform.position = new Vector3(186f, 1.8f, -170f);//PLAZA DE LAS ESTELAS
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA10_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(600f, 215f, -600f);
-
+        Des.RX = -4f;
+        Des.RY = 98f;
+        CAMERA.transform.position = new Vector3(88f, 1.8f, -165f);//PALACIO DE LAS ESTELAS
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA11_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(900f, 215f, -600f);
+        Des.RX = 0f;
+        Des.RY = 183f;
+        CAMERA.transform.position = new Vector3(243f, 1.8f, -230f);//CONJUNTO NOROESTE
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA12_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(1200f, 215f, -600f);
+        Des.RX = -10f;
+        Des.RY = 96f;
+        CAMERA.transform.position = new Vector3(100f, 1.8f, -245f);//ACROPOLIS
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     }
     private void Btn_ZONA13_clicked()
     {
         Menu.enabled = false;
         Principal.enabled = true;
         Mapa.enabled = false;
-        CAMERA.transform.position = new Vector3(1500f, 215f, -600f);
+        Des.RX = -10f;
+        Des.RY = 180f;
+        CAMERA.transform.position = new Vector3(-54f, 1.8f, -125f);//MASCARONES
+        CAMERA.transform.eulerAngles = new Vector3(Des.RX, Des.RY, 0f);
     } 
 }

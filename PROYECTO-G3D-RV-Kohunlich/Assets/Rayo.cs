@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Rayo : MonoBehaviour
 {
     Vector3 vi, vf;
-    float t;
     Quaternion Q0;
     Ray RAYO;
     public Text NombreLugar, Info;
@@ -93,7 +92,6 @@ public class Rayo : MonoBehaviour
                 {
                     Info.text = " ";
                 }
-          
         }
         else
         {
@@ -103,12 +101,10 @@ public class Rayo : MonoBehaviour
             Activar = false;
         }
     }
-    
     public void B_Info_clicked()
     {
         Activar = !Activar;
         if (Activar) Info.gameObject.SetActive(true);
         else Info.gameObject.SetActive(false);
     }
-    
 }
