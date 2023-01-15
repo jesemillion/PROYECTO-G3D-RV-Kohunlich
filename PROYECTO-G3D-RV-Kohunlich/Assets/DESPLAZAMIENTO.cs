@@ -22,8 +22,7 @@ public class DESPLAZAMIENTO : MonoBehaviour
 
     int Mod;//VARIABLE QUE DEFINE ENTRE MUNDO VIRTUAL Y REALIDAD VIRTUAL
     float Laf, Lof;
-    //float Lai = 19.511446f, Loi = -99.126563f, Ali = 2241f; //ESCUELA
-    float Lai = 19.40977f, Loi = -99.01373f, Ali = 2228f; //PERSONAL
+    float Lai = 19.40977f, Loi = -99.01373f; //PERSONAL
     float dLa, dLo, X, Z, t;
     float R = 6371000f;
     Quaternion Q0, Q1, Q2, Q3, QA, QB;
@@ -34,8 +33,6 @@ public class DESPLAZAMIENTO : MonoBehaviour
         Q1 = new Quaternion(0f, 0f, Mathf.Sin(Mathf.PI / 4f), Mathf.Cos(Mathf.PI / 4f));
         Q2 = new Quaternion(Mathf.Sin(Mathf.PI / 4f), 0f, 0f, Mathf.Cos(Mathf.PI / 4f));
         Q3 = new Quaternion(0f, 0f, Mathf.Sin(Mathf.PI / 2f), Mathf.Cos(Mathf.PI / 2f));
-        Lai = Input.location.lastData.latitude;
-        Loi = Input.location.lastData.longitude;
     }
 
     // Update is called once per frame
@@ -130,6 +127,8 @@ public class DESPLAZAMIENTO : MonoBehaviour
         if (Time.time < (t + 3f))
         {
             Input.location.Start();
+            Lai = Input.location.lastData.latitude;
+            Loi = Input.location.lastData.longitude;
         }
         else
         {

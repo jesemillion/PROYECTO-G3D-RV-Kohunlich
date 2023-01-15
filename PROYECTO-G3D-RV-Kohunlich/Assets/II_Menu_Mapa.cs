@@ -4,16 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-// Instituto Politécnico Nacional - UPIITA
-// Realidad Virtual - 4MV14
-// Proyecto Final 2023-1
-// Equipo: Interacciones e Información
-// Integrantes:
-//  - Hinojosa Pérez Marco Antonio
-//  - Mancilla Galván Luis Ángel
-//  - Morales Flores Luis Fernando
-//  - Velasco Sandoval Nahomi
-
 public class II_Menu_Mapa : MonoBehaviour
 {
     public Canvas Principal;
