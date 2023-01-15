@@ -55,7 +55,7 @@ public class DESPLAZAMIENTO : MonoBehaviour
     void RV()
     {
         //Limite para mirar arriba y abajo, desde -5° hasta 30°
-        RX = Mathf.Clamp(RX, -60f, -5f);
+        RX = Mathf.Clamp(RX, -45f, 25f);
         NT = Input.touchCount;
         if (NT == 1)
         {
