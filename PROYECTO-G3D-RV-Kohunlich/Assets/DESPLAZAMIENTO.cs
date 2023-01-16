@@ -22,7 +22,7 @@ public class DESPLAZAMIENTO : MonoBehaviour
 
     int Mod;//VARIABLE QUE DEFINE ENTRE MUNDO VIRTUAL Y REALIDAD VIRTUAL
     float Laf, Lof;
-    float Lai = 19.40977f, Loi = -99.01373f; //PERSONAL
+    float Lai = 19.40977f, Loi = -99.01373f; //COORDENADAS PERSONALES, MODIFICAR A COORDENADAS REALES DEL LUGAR
     float dLa, dLo, X, Z, t;
     float R = 6371000f;
     Quaternion Q0, Q1, Q2, Q3, QA, QB;
@@ -127,6 +127,7 @@ public class DESPLAZAMIENTO : MonoBehaviour
         if (Time.time < (t + 3f))
         {
             Input.location.Start();
+            //FRAGMENTO PROVISIONAL PARA PRUEBAS EN CUALQUIER LUGAR
             Lai = Input.location.lastData.latitude;
             Loi = Input.location.lastData.longitude;
         }
